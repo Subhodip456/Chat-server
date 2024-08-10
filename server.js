@@ -24,7 +24,7 @@ socketIO.on("connection", (socket) => {
 		console.log("createRoom = ",name);
 		socket.join(name);
 		for(let i=0;i<chatRooms.length;i++){
-			console.log(chatRooms[i]);
+			console.log("chatRooms[i] = ",chatRooms[i]);
 		}
 		chatRooms.unshift({ id: generateID(), name, messages: [] });
 		socket.emit("roomsList", chatRooms);
