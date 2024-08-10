@@ -21,7 +21,11 @@ socketIO.on("connection", (socket) => {
 	console.log(`⚡: ${socket.id} user just connected!`);
 
 	socket.on("createRoom", (name) => {
+		console.log("createRoom = ",name);
 		socket.join(name);
+		for(int i=0;i<chatRooms.length;i++){
+			console.log(chatRooms[i]);
+		}
 		chatRooms.unshift({ id: generateID(), name, messages: [] });
 		socket.emit("roomsList", chatRooms);
 	});
